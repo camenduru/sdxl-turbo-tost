@@ -3,10 +3,10 @@ import torch
 import json
 
 pipe = AutoPipelineForText2Image.from_pretrained(
-    "misri/cyberrealisticXL_v11VAE",
+    "stabilityai/sdxl-turbo",
     torch_dtype=torch.float16,
     variant="fp16",
-    requires_safety_checker=False).to("cuda:0")
+    requires_safety_checker=False).to("cuda:1")
 
 import gradio as gr
 
@@ -33,13 +33,13 @@ def generate(command):
         values = json.loads(command)
         width = closestNumber(values['width'], 8)
         height = closestNumber(values['height'], 8)
-        image = pipe(values['prompt'], negative_prompt=values['negative_prompt'], num_inference_steps=25, guidance_scale=7.5, width=width, height=height).images[0]
+        image = pipe(values['prompt'], negative_prompt=values['negative_prompt'], num_inference_steps=1, guidance_scale=0.0, width=width, height=height).images[0]
         image.save('/content/image.jpg')
         return image
     else:
-        width = closestNumber(1024, 8)
-        height = closestNumber(1024, 8)
-        image = pipe(command, num_inference_steps=25, guidance_scale=7.5, width=width, height=height).images[0]
+        width = closestNumber(512, 8)
+        height = closestNumber(512, 8)
+        image = pipe(command, num_inference_steps=1, guidance_scale=0.0, width=width, height=height).images[0]
         image.save('/content/image.jpg')
         return image
 
