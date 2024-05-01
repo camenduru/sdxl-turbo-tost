@@ -3,7 +3,7 @@
 🥳 Please join my patreon community https://patreon.com/camenduru <br />
 
 ### 🧿 Camenduru
-https://web.camenduru.com/sdxl-turbo
+https://web.camenduru.com
 
 ### 🧬 Code
 https://github.com/Stability-AI/generative-models
