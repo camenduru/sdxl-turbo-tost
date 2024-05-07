@@ -28,7 +28,7 @@
     "buttons": [
         {
             "id": "enter",
-            "label": "🧿 Enter sdxl-turbo"
+            "label": "🧿 Enter"
         }
     ]
 }
