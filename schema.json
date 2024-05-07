@@ -19,10 +19,6 @@
         "height": {
             "type": "integer",
             "description": "height"
-        },
-        "test": {
-            "type": "string",
-            "description": "test"
         }
     },
     "buttons": [
