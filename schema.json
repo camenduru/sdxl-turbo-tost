@@ -1,30 +1,42 @@
-{	
+{
     "$schema": "http://json-schema.org/draft-04/hyper-schema#",
     "type": "object",
     "properties": {
-        "prompt": {
-            "type": "string",
-            "description": "prompt",
-            "widget": "textarea"
-        },
-        "negative_prompt": {
-            "type": "string",
-            "description": "negative_prompt",
-            "widget": "textarea"
-        },
-        "width": {
-            "type": "integer",
-            "description": "width"
-        },
-        "height": {
-            "type": "integer",
-            "description": "height"
-        }
+      "readme": {
+        "type": "string",
+        "title": "Adversarial Diffusion Distillation",
+        "description": "We introduce Adversarial Diffusion Distillation (ADD), a novel training approach that efficiently samples large-scale foundational image diffusion models in just 1-4 steps while maintaining high image quality. We use score distillation to leverage large-scale off-the-shelf image diffusion models as a teacher signal in combination with an adversarial loss to ensure high image fidelity even in the low-step regime of one or two sampling steps. Our analyses show that our model clearly outperforms existing few-step methods (GANs, Latent Consistency Models) in a single step and reaches the performance of state-of-the-art diffusion models (SDXL) in only four steps. ADD is the first method to unlock single-step, real-time image synthesis with foundation models.",
+        "author": "Axel Sauer, Dominik Lorenz, Andreas Blattmann, Robin Rombach",
+        "code": "https://github.com/Stability-AI/generative-models",
+        "paper": "https://arxiv.org/abs/2311.17042",
+        "page": "https://stability.ai/news/stability-ai-sdxl-turbo",
+        "jupyter": "https://github.com/camenduru/sdxl-colab",
+        "replicate": "https://replicate.com/lucataco/dreamshaper-xl-turbo",
+        "widget": "readme"
+      },
+      "prompt": {
+        "type": "string",
+        "description": "Prompt",
+        "widget": "textarea"
+      },
+      "negative_prompt": {
+        "type": "string",
+        "description": "Negative Prompt",
+        "widget": "textarea"
+      },
+      "width": {
+        "type": "integer",
+        "description": "Width"
+      },
+      "height": {
+        "type": "integer",
+        "description": "Height"
+      }
     },
     "buttons": [
-        {
-            "id": "enter",
-            "label": "🧿 Enter"
-        }
+      {
+        "id": "enter",
+        "label": "🧿 Enter"
+      }
     ]
-}
+  }
