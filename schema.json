@@ -10,8 +10,11 @@
         "code": "https://github.com/Stability-AI/generative-models",
         "paper": "https://arxiv.org/abs/2311.17042",
         "page": "https://stability.ai/news/stability-ai-sdxl-turbo",
-        "jupyter": "https://github.com/camenduru/sdxl-colab",
-        "replicate": "https://replicate.com/lucataco/dreamshaper-xl-turbo",
+        "jupyter": "https://github.com/camenduru/sdxl-turbo-colab",
+        "post": "https://x.com/camenduru/status/1729660362750849356",
+        "tags": [
+          "Text to Image"
+        ],
         "widget": "readme"
       },
       "prompt": {
@@ -36,7 +39,7 @@
     "buttons": [
       {
         "id": "enter",
-        "label": "🧿 Enter"
+        "label": "🥪 Enter"
       }
     ]
   }
