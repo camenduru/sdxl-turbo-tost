@@ -21,36 +21,31 @@ def closestNumber(n, m):
         return n1
     return n2
 
-def is_parsable_json(command):
-    try:
-        json.loads(command)
-        return True
-    except json.JSONDecodeError:
-        return False
-
 def generate(command):
-    if is_parsable_json(command):
-        values = json.loads(command)
-        width = closestNumber(values['width'], 8)
-        height = closestNumber(values['height'], 8)
-        image = pipe(values['prompt'], negative_prompt=values['negative_prompt'], num_inference_steps=1, guidance_scale=0.0, width=width, height=height).images[0]
-        image.save('/content/image.jpg')
-        return image
-    else:
-        width = closestNumber(512, 8)
-        height = closestNumber(512, 8)
-        image = pipe(command, num_inference_steps=1, guidance_scale=0.0, width=width, height=height).images[0]
-        image.save('/content/image.jpg')
-        return image
+    values = json.loads(command)
+    width = closestNumber(values['width'], 8)
+    height = closestNumber(values['height'], 8)
+    image = pipe(values['prompt'], negative_prompt=values['negative_prompt'], num_inference_steps=1, guidance_scale=0.0, width=width, height=height).images[0]
+    image.save('/content/image.jpg')
+    return image
 
 with gr.Blocks(title=f"sdxl-turbo", css=".gradio-container {max-width: 544px !important}", analytics_enabled=False) as demo:
     with gr.Row():
       with gr.Column():
-          textbox = gr.Textbox(show_label=False, value="a close-up picture of a fluffy cat")
+          textbox = gr.Textbox(
+            show_label=False, 
+            value="""{
+                "prompt":"Totoro at the pool eating toast",
+                "negative_prompt":"lowres, text, error, cropped, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, out of frame, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck, username, watermark, signature",
+                "width":512,
+                "height":512
+            }"""
+          )
           button = gr.Button()
     with gr.Row(variant="default"):
         output_image = gr.Image(
             show_label=False,
+            format=".png",
             type="pil",
             interactive=False,
             height=512,
