@@ -17,5 +17,5 @@ https://stability.ai/news/stability-ai-sdxl-turbo
 ### 📦 Model
 https://huggingface.co/stabilityai/sdxl-turbo
 
-### 🖼 Output
-
+### 🏢 Sponsor
+https://runpod.io
