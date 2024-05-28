@@ -21,6 +21,7 @@ def closestNumber(n, m):
         return n1
     return n2
 
+@torch.inference_mode()
 def generate(command):
     values = json.loads(command)
     width = closestNumber(values['width'], 8)
@@ -53,7 +54,7 @@ with gr.Blocks(title=f"sdxl-turbo", css=".gradio-container {max-width: 544px !im
             elem_id="output_image",
         )
 
-    button.click(fn=generate, inputs=[textbox], outputs=[output_image], show_progress=False)
+    button.click(fn=generate, inputs=[textbox], outputs=[output_image])
 
 import os
 PORT = int(os.getenv('server_port'))
